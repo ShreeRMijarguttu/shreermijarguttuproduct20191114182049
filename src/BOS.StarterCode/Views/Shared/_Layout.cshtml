@@ -38,6 +38,16 @@
     @{
         var hotJarValue = @Configuration.GetSection("Hotjar").Value;
         var googleAnalyticsValue = @Configuration.GetSection("GoogleAnalytics").Value;
+
+        if (hotJarValue == "null" || hotJarValue == null)
+        {
+            hotJarValue = "";
+        }
+
+        if (googleAnalyticsValue == "null" || googleAnalyticsValue == null)
+        {
+            googleAnalyticsValue = "";
+        }
     }
 
     @Html.Raw(hotJarValue)
